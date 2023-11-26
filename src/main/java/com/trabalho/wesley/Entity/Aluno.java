@@ -1,8 +1,8 @@
 package com.trabalho.wesley.Entity;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
+
+import java.util.Set;
 
 
 @Entity
@@ -12,4 +12,7 @@ public class Aluno {
     private Integer id;
 
     private String nome;
+
+    @OneToMany(mappedBy = "aluno")
+    private Set<AlunoCurso> alunoCurso;
 }
