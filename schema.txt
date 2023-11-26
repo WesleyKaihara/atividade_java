@@ -1,0 +1,43 @@
+ALUNO
+- id 
+- nome
+- dataEntrada
+
+ALUNO_CURSO
+- alunoId
+- cursoId
+- dataEntrada
+- Status
+
+CURSO
+- id 
+- nome
+- criadoEm
+
+MODALIDADE - ENUM
+- id 
+- nome
+- criadoEm
+
+STATUS - ENUM
+- id 
+- nome
+
+DISCIPLINA 
+- id
+- nome
+- criadaEm
+
+ALUNO_DISCIPLINA
+- alunoId
+- nota
+- dataEntrada
+- AtualizadoEm
+
+
+
+
+
+
+
+
