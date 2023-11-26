@@ -1,7 +1,5 @@
 package com.trabalho.wesley.Entity;
 
-import com.trabalho.wesley.Entity.Key.AlunoCursoKey;
-import com.trabalho.wesley.Entity.Key.AlunoDisciplinaAvaliacaoKey;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -12,8 +10,9 @@ import lombok.Setter;
 @Setter
 @NoArgsConstructor
 public class AlunoDisciplinaAvaliacao {
-    @EmbeddedId
-    private AlunoDisciplinaAvaliacaoKey id;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Integer id;
 
     @ManyToOne
     @MapsId("alunoId")

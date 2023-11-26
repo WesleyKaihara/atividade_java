@@ -9,9 +9,11 @@ import java.util.Set;
 @Table(name = "aluno")
 public class Aluno {
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
     private String nome;
+    private String email;
 
     @OneToMany(mappedBy = "aluno")
     private Set<AlunoCurso> alunoCurso;

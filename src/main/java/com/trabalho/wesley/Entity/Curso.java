@@ -6,6 +6,7 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import java.io.Serializable;
+import java.util.List;
 import java.util.Set;
 
 @Entity
@@ -20,7 +21,12 @@ public class Curso implements Serializable {
 
     private String nome;
 
+    private Integer duracao;
+
     @OneToMany(mappedBy = "curso")
     private Set<AlunoCurso> alunoCurso;
+
+    @OneToMany(mappedBy = "curso")
+    private List<Disciplina> listaDisciplinas;
 }
 

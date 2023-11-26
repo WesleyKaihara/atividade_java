@@ -18,6 +18,7 @@ public class AlunoCurso {
     @ManyToOne
     @MapsId("alunoId")
     @JoinColumn(name = "aluno_id")
+
     private Aluno aluno;
     @ManyToOne
     @MapsId("cursoId")
