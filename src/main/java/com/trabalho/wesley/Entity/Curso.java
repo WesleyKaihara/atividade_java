@@ -1,5 +1,7 @@
 package com.trabalho.wesley.Entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -24,9 +26,11 @@ public class Curso implements Serializable {
     private Integer duracao;
 
     @OneToMany(mappedBy = "curso")
+    @JsonIgnore
     private Set<AlunoCurso> alunoCurso;
 
     @OneToMany(mappedBy = "curso")
+    @JsonIgnoreProperties({ "curso" })
     private List<Disciplina> listaDisciplinas;
 }
 
