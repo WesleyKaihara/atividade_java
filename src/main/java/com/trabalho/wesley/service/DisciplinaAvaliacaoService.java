@@ -1,8 +1,6 @@
 package com.trabalho.wesley.service;
 
-import com.trabalho.wesley.Entity.AlunoDisciplinaAvaliacao;
 import com.trabalho.wesley.Entity.DisciplinaAvaliacao;
-import com.trabalho.wesley.repository.AlunoDisciplinaAvaliacaoRepository;
 import com.trabalho.wesley.repository.DisciplinaAvaliacaoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

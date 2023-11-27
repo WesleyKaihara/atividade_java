@@ -26,5 +26,8 @@ public class CursoService {
         return cursoRepository.save(curso);
     }
 
+    public void remover(Curso curso) {
+        cursoRepository.delete(curso);
+    }
 
 }

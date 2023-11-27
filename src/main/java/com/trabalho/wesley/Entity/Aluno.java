@@ -24,5 +24,5 @@ public class Aluno {
 
     @OneToMany(mappedBy = "aluno")
     @JsonIgnoreProperties({ "aluno", "id" })
-    private Set<AlunoCurso> alunoCurso;
+    private Set<AlunoCurso> alunoCursos;
 }

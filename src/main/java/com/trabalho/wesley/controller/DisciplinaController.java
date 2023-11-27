@@ -1,7 +1,6 @@
 package com.trabalho.wesley.controller;
 
 
-import com.trabalho.wesley.Entity.Curso;
 import com.trabalho.wesley.Entity.Disciplina;
 import com.trabalho.wesley.service.DisciplinaService;
 import org.springframework.beans.factory.annotation.Autowired;

@@ -1,5 +1,7 @@
 package com.trabalho.wesley.Entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.trabalho.wesley.Entity.Key.AlunoCursoKey;
 import jakarta.persistence.*;
 import lombok.Getter;
@@ -13,11 +15,13 @@ import lombok.Setter;
 public class AlunoCurso {
 
     @EmbeddedId
+    @JsonIgnore
     private AlunoCursoKey id;
 
     @ManyToOne
     @MapsId("alunoId")
     @JoinColumn(name = "aluno_id")
+    @JsonIgnoreProperties({ "alunoCursos" })
     private Aluno aluno;
 
     @ManyToOne

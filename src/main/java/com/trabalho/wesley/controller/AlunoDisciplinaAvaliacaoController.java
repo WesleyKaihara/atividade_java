@@ -1,9 +1,7 @@
 package com.trabalho.wesley.controller;
 
-import com.trabalho.wesley.Entity.Aluno;
 import com.trabalho.wesley.Entity.AlunoDisciplinaAvaliacao;
 import com.trabalho.wesley.service.AlunoDisciplinaAvaliacaoService;
-import com.trabalho.wesley.service.AlunoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
