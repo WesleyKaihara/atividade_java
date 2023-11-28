@@ -25,4 +25,7 @@ public class DisciplinaService {
         return disciplinaRepository.save(disciplina);
     }
 
+    public void remover(Disciplina disciplina) {
+        disciplinaRepository.delete(disciplina);
+    }
 }

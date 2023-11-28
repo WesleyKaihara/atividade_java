@@ -25,4 +25,7 @@ public class AlunoDisciplinaAvaliacaoService {
         return alunoDisciplinaAvaliacaoRepository.save(alunoDisciplinaAvaliacao);
     }
 
+    public void remover(AlunoDisciplinaAvaliacao alunoDisciplinaAvaliacao) {
+        alunoDisciplinaAvaliacaoRepository.delete(alunoDisciplinaAvaliacao);
+    }
 }

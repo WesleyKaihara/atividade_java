@@ -25,4 +25,7 @@ public class AlunoService {
         return alunoRepository.save(aluno);
     }
 
+    public void remover(Aluno aluno) {
+        alunoRepository.delete(aluno);
+    }
 }

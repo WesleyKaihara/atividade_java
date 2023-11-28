@@ -1,6 +1,7 @@
 package com.trabalho.wesley.controller;
 
 import com.trabalho.wesley.Entity.Aluno;
+import com.trabalho.wesley.Entity.Disciplina;
 import com.trabalho.wesley.service.AlunoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -37,5 +38,33 @@ public class AlunoController {
     @PostMapping
     public ResponseEntity<Aluno> cadastrarAluno(@RequestBody Aluno aluno) {
         return ResponseEntity.status(HttpStatus.CREATED).body(alunoService.salvar(aluno));
+    }
+
+    @PutMapping("/{alunoId}")
+    public ResponseEntity<Object> atualizarAluno(@PathVariable(value = "alunoId") Integer alunoId, @RequestBody Aluno alunoBody) {
+        Optional<Aluno> d = alunoService.encontrarPorId(alunoId);
+
+        if(d.isEmpty()) {
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body(d);
+        }
+
+        Aluno aluno = d.get();
+        aluno.setNome(alunoBody.getNome());
+        aluno.setEmail(alunoBody.getEmail());
+
+        return ResponseEntity.status(HttpStatus.OK).body(alunoService.salvar(aluno));
+    }
+
+    @DeleteMapping("/{alunoId}")
+    public ResponseEntity<Object> removerAluno(@PathVariable(value = "alunoId") Integer alunoId) {
+        Optional<Aluno> d = alunoService.encontrarPorId(alunoId);
+
+        if(d.isEmpty()) {
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body(d);
+        }
+
+        Aluno aluno = d.get();
+        alunoService.remover(aluno);
+        return ResponseEntity.status(HttpStatus.OK).body("O(A) aluno(a) com " + aluno.getNome() + " foi removido(a)!!");
     }
 }
