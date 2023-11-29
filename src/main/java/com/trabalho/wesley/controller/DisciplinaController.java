@@ -3,8 +3,10 @@ package com.trabalho.wesley.controller;
 
 import com.trabalho.wesley.Entity.Curso;
 import com.trabalho.wesley.Entity.Disciplina;
+import com.trabalho.wesley.dto.Disciplina.VincularDisciplinaDto;
 import com.trabalho.wesley.service.DisciplinaService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.crossstore.ChangeSetPersister;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -37,8 +39,8 @@ public class DisciplinaController {
     }
 
     @PostMapping
-    public ResponseEntity<Disciplina> cadastrarDisciplina(@RequestBody Disciplina disciplina) {
-        return ResponseEntity.status(HttpStatus.CREATED).body(disciplinaService.salvar(disciplina));
+    public ResponseEntity<Disciplina> cadastrarDisciplina(@RequestBody VincularDisciplinaDto vincularDisciplinaDto) throws ChangeSetPersister.NotFoundException {
+        return ResponseEntity.status(HttpStatus.CREATED).body(disciplinaService.salvar(vincularDisciplinaDto));
     }
 
     @PutMapping("/{disciplinaId}")
@@ -52,7 +54,7 @@ public class DisciplinaController {
         Disciplina disciplina = d.get();
         disciplina.setNome(disciplinaBody.getNome());
 
-        return ResponseEntity.status(HttpStatus.OK).body(disciplinaService.salvar(disciplina));
+        return ResponseEntity.status(HttpStatus.OK).body(disciplinaService.atualizar(disciplina));
     }
 
     @DeleteMapping("/{disciplinaId}")

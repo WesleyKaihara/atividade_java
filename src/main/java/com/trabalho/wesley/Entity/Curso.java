@@ -6,6 +6,7 @@ import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import org.hibernate.annotations.Cascade;
 
 import java.io.Serializable;
 import java.util.List;
@@ -25,12 +26,12 @@ public class Curso implements Serializable {
 
     private Integer duracao;
 
-    @OneToMany(mappedBy = "curso")
+    @OneToMany(mappedBy = "curso", cascade = CascadeType.ALL)
     @JsonIgnore
     private Set<AlunoCurso> alunoCurso;
 
-    @OneToMany(mappedBy = "curso")
+    @OneToMany(mappedBy = "curso", cascade = CascadeType.ALL, orphanRemoval = true)
     @JsonIgnoreProperties({ "curso" })
+    @Cascade(org.hibernate.annotations.CascadeType.ALL)
     private List<Disciplina> listaDisciplinas;
 }
-

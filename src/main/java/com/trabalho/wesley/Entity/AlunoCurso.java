@@ -16,7 +16,7 @@ public class AlunoCurso {
 
     @EmbeddedId
     @JsonIgnore
-    private AlunoCursoKey id;
+    private AlunoCursoKey alunoCurso;
 
     @ManyToOne
     @MapsId("alunoId")

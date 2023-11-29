@@ -5,6 +5,7 @@ import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import org.hibernate.annotations.Cascade;
 
 import java.util.List;
 
@@ -21,11 +22,9 @@ public class Disciplina {
     private String nome;
 
     @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "curso_id")
     @JsonIgnoreProperties({ "listaDisciplinas", "hibernateLazyInitializer"})
+    @Cascade(org.hibernate.annotations.CascadeType.ALL)
     private Curso curso;
-
-    @OneToMany(mappedBy = "disciplina")
-    @JsonIgnoreProperties({ "disciplina"})
-    private List<DisciplinaAvaliacao> avaliacoes;
 
 }
