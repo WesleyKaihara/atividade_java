@@ -37,4 +37,9 @@ public class AlunoCursoController {
     public ResponseEntity<AlunoCurso> adicionarAlunoCurso(@RequestBody VincularAlunoCursoDto vincularAlunoCursoDto) throws ChangeSetPersister.NotFoundException {
         return ResponseEntity.status(HttpStatus.CREATED).body(alunoCursoService.salvar(vincularAlunoCursoDto));
     }
+
+    @DeleteMapping
+    public ResponseEntity<AlunoCurso> removerAlunoCurso(@RequestBody VincularAlunoCursoDto vincularAlunoCursoDto) throws ChangeSetPersister.NotFoundException {
+        return ResponseEntity.status(HttpStatus.CREATED).body(alunoCursoService.salvar(vincularAlunoCursoDto));
+    }
 }

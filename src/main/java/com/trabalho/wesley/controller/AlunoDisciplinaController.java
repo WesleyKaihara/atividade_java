@@ -23,6 +23,11 @@ public class AlunoDisciplinaController {
         return ResponseEntity.status(HttpStatus.OK).body(alunoDisciplinaService.listar());
     }
 
+    @GetMapping("/{alunoId}")
+    public ResponseEntity<List<AlunoDisciplina>> listarDisciplinasAluno(@PathVariable(value = "alunoId") Integer alunoId) {
+        return ResponseEntity.status(HttpStatus.OK).body(alunoDisciplinaService.listarDisciplinasAluno(alunoId));
+    }
+
     @PostMapping
     public ResponseEntity<AlunoDisciplina> adicionarDisciplinaAluno(@RequestBody AlunoDisciplina alunoDisciplina) {
         System.out.println(alunoDisciplina);

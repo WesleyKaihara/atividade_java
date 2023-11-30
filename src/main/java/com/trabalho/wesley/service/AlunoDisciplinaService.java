@@ -1,5 +1,6 @@
 package com.trabalho.wesley.service;
 
+import com.trabalho.wesley.Entity.Aluno;
 import com.trabalho.wesley.Entity.AlunoDisciplina;
 import com.trabalho.wesley.repository.AlunoDisciplinaRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,6 +15,10 @@ public class AlunoDisciplinaService {
 
     public List<AlunoDisciplina> listar() {
         return alunoDisciplinaRepository.findAll();
+    }
+
+    public List<AlunoDisciplina> listarDisciplinasAluno(Integer alunoId) {
+        return alunoDisciplinaRepository.findAllByAlunoDisciplinaAlunoId(alunoId);
     }
 
     public AlunoDisciplina salvar(AlunoDisciplina alunoDisciplina) {
