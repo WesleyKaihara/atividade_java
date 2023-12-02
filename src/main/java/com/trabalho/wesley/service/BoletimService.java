@@ -28,7 +28,15 @@ public class BoletimService {
             itemBoletim.setCurso(key.getCurso());
             itemBoletim.setAlunoDisciplina(alunoDisciplina);
 
-            itemBoletim.setStatus(getStatusDisciplina(calculaNotaFinal(alunoDisciplina)));
+            String status;
+
+            if(alunoDisciplina.getProvas() == null && alunoDisciplina.getTrabalhos() == null) {
+                status = "ativo";
+            } else {
+                status = getStatusDisciplina(calculaNotaFinal(alunoDisciplina));
+            }
+
+            itemBoletim.setStatus(status);
 
             boletimAluno.add(itemBoletim);
         }
@@ -47,8 +55,16 @@ public class BoletimService {
     }
 
     private Float calculaNotaFinal(AlunoDisciplina alunoDisciplina) {
-        Float trabalhos = alunoDisciplina.getTrabalhos();
-        Float provas = alunoDisciplina.getProvas();
+        Float trabalhos = 0f;
+        Float provas = 0f;
+
+        if(alunoDisciplina.getTrabalhos() != null) {
+            trabalhos = alunoDisciplina.getTrabalhos();
+        }
+
+        if(alunoDisciplina.getProvas() != null) {
+            provas = alunoDisciplina.getProvas();
+        }
 
         Float notaAluno = trabalhos + provas;
 
